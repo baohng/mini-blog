@@ -11,6 +11,10 @@
     <title>Mini Blog</title>
   </head>
   <body>
-    <%- body %>
+    <div class="container">
+      <%- include('../partials/header.ejs') %>
+      <main class="main"><%- body %></main>
+      <%- include('../partials/footer.ejs') %>
+    </div>
   </body>
 </html>
