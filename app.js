@@ -10,6 +10,9 @@ dotenv.config();
 const PORT = process.env.PORT || 3003;
 const app = express();
 
+// Serve static tiles from the 'public' directory
+app.use(express.static('public'));
+
 // Template Engine
 app.use(expressEjsLayouts);
 app.set('layout', './layouts/main.ejs');
