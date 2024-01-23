@@ -9,8 +9,18 @@ const router = express.Router();
  * GET /
  * HOME
  */
-router.get('', (req, res) => {
-  res.render('index');
+router.get('', async (req, res) => {
+  const locals = {
+    title: "NodeJS Blog",
+    description: "Simple Blog created with NodeJs, Express & MongoDb"
+  }
+  try {
+    const data = await Post.find();
+    res.render('index', { locals, data });
+  } catch (error) {
+    console.log(error);
+  }
+
 });
 
 router.get('/about', (req, res) => {
